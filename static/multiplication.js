@@ -14,7 +14,7 @@ function update_cur_table_index(){
     if (col_upto < table_size){
         col_upto ++;
     } else {
-        col_upto = 0;
+        col_upto = 1;
         row_upto++;
     }
 }
