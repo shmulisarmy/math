@@ -38,7 +38,7 @@ function display_hint(){
     }
     hint.innerText = `first cancel out the ${num2} by applying ${operaters[1 - operater_index]}${num2} to ${num2}\n`;
     hint.innerText += `now that ${num2} ${operaters[1 - operater_index]} ${num2} = 0,\n anything that happens to one side must happend to the other side,\n and since ${q_right_side} ${operaters[1 - operater_index]} ${num2} = `;
-    hint.innerText += `$ {h_a} `;
+    hint.innerText += `${h_a} `;
     hint.innerText += `we are now left with ${num1}x = ${num1*x}`;
 }
 
