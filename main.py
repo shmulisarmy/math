@@ -7,7 +7,7 @@ app = Flask(__name__)
 def algebra():
     return render_template('algebra.html')
 @app.route('/multiplication')
-def algebra():
+def multiplication():
     return render_template('multiplication.html')
 
 
