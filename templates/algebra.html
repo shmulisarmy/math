@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='algebra.css') }}">
+    <script src="{{ url_for('static', filename='algebra.js') }}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent-container">
+        <div class="centered-div">
+            <h1 id = 'question'></h1>
+            <h1 id = 'hint'></h1>
+            <input id = 'input'>
+            <button onclick="submit()">Submit</button>
+            <h1 id = 'answer_display'></h1>
+            <button id = 'next_question' onclick="load_question()">next_question</button>
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>
