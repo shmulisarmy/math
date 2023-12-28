@@ -20,5 +20,5 @@ td {
 }
 #addition_visualization{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }

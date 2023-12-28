@@ -5,16 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/all_pages.css">
-    <script src="addition.js" defer></script>
-    "
-    <title>Document</title>
-    <style>
-        body{
-            text-align: center;
-        }
-    </style>
+    <script src= "{{ url_for('static', filename='addition.js') }}" defer></script>
+    
+    <title>addition</title>
 </head>
 <body>
+    <a href="{{ url_for('home') }}">Go to Home</a>
+
     <div id="addition_visualization">
 
     </div>

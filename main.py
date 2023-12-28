@@ -7,6 +7,12 @@ app = Flask(__name__)
 @app.route('/algebra')
 def algebra():
     return render_template('algebra.html')
+
+
+@app.route('/addition')
+def addition():
+    return render_template('addition.html')
+
 @app.route('/multiplication')
 def multiplication():
     table_size = 6
