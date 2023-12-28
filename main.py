@@ -9,7 +9,9 @@ def algebra():
     return render_template('algebra.html')
 @app.route('/multiplication')
 def multiplication():
-    return render_template('multiplication.html')
+    table_size = 7
+    table = [[row*col for col in range(table_size)] for row in range(table_size)]
+    return render_template('multiplication.html', table=table)
 
 @app.route('/')
 def home():

@@ -3,9 +3,10 @@ const question = document.getElementById('question');
 const input = document.getElementById('input');
 const button = document.getElementById('button');
 const display_result = document.getElementById('display_result');
-const next_question = document.getElementById('next_question');
+const times_table = document.getElementById('times_table');
 
-const table_size = 10;
+
+const table_size = times_table.rows.length;
 let row_upto = 1;
 let col_upto = 1;
 
@@ -28,9 +29,15 @@ function submit(){
     if (users_answer == row_upto*col_upto){
         input.style.color='green';
         display_result.innerText = 'correct!!!';
+        times_table.rows[row_upto-1].cells[col_upto-1].innerText = users_answer;
+        input.value = '';
+        display_result.style.color='green';
+        update_cur_table_index();
+        load_question();
     } else {
         input.style.color='red';
         display_result.innerText = 'incorrect';
+        display_result.style.color='red';
     }
 }
 window.addEventListener('keydown', key => {
