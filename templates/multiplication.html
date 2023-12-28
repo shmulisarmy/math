@@ -35,3 +35,97 @@
     
 </body>
 </html>
+
+
+
+//notepad code
+<head>
+ <style>
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.notepad-container {
+  position: absolute;
+  top: -5px;
+  left: -80px;
+  width: 60%;
+  cursor: move; /* Set cursor to indicate the element is draggable */
+}
+
+textarea {
+  width: 40%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+
+  </style>
+  <title>Notepad</title>
+</head>
+<body>
+
+    <div class="notepad-container" id="notepad-container">
+        <textarea id="notepad" placeholder="notepad"></textarea>
+      </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const notepadContainer = document.getElementById('notepad-container');
+  const notepad = document.getElementById('notepad');
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  // Function to handle the dragging functionality
+  function handleDragStart(event) {
+    if (event.target === notepadContainer) {
+      isDragging = true;
+      offsetX = event.clientX - notepadContainer.getBoundingClientRect().left;
+      offsetY = event.clientY - notepadContainer.getBoundingClientRect().top;
+    }
+  }
+
+  function handleDragMove(event) {
+    if (isDragging) {
+      let newLeft = event.clientX - offsetX;
+      let newTop = event.clientY - offsetY;
+
+      notepadContainer.style.left = newLeft + 'px';
+      notepadContainer.style.top = newTop + 'px';
+    }
+  }
+
+  function handleDragEnd() {
+    isDragging = false;
+  }
+
+  // Add event listeners for dragging
+  notepadContainer.addEventListener('mousedown', handleDragStart);
+  document.addEventListener('mousemove', handleDragMove);
+  document.addEventListener('mouseup', handleDragEnd);
+
+  // Load saved content from localStorage
+  notepad.value = localStorage.getItem('notepadContent') || '';
+
+  // Save content to localStorage on input
+  notepad.addEventListener('input', function () {
+    const content = notepad.value;
+    localStorage.setItem('notepadContent', content);
+  });
+});
+
+
+
+
+</script>
+</body>
+</html>
