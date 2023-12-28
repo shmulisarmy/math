@@ -10,6 +10,7 @@ const table_size = times_table.rows.length;
 let row_upto = 1;
 let col_upto = 1;
 let hint;
+let cur_cell;
 
 
 function update_cur_table_index(){
@@ -22,6 +23,9 @@ function update_cur_table_index(){
 }
 
 function load_question(){
+    cur_cell = times_table.rows[row_upto-1].cells[col_upto-1];
+    cur_cell.style.color = 'orange'
+    cur_cell.innerText = '-';
     question.innerText = `what is ${row_upto} * ${col_upto}? `;
     hint = [];
     for (i=1; i<=col_upto; i++){
@@ -37,6 +41,7 @@ function submit(){
         times_table.rows[row_upto-1].cells[col_upto-1].innerText = users_answer;
         input.value = '';
         display_result.style.color='green';
+        cur_cell.style.color = 'green';
         update_cur_table_index();
         load_question();
     } else {
@@ -58,6 +63,7 @@ question.addEventListener('mouseout', function () {
 
 question.addEventListener('mouseover', function () {
     question.innerText = hint.join(" + ");
+    question.innerText += `\n${row_upto*(col_upto-1)} + ${row_upto}`;
   });
 
 
